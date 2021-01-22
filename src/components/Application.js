@@ -7,9 +7,9 @@ import axios from "axios";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 import { getAppointmentsForDay, 
-         getInterview 
+         getInterview,
+         getInterviewersForDay
         } from "helpers/selectors"
-import useVisualMode from "hooks/useVisualMode"
 
 
 export default function Application(props) {
@@ -17,10 +17,11 @@ export default function Application(props) {
     day: "Monday",
     days: [],
     appointments: {},
-    interviewers: {}
+    interviewers: {},
   })
-
+  const setDay = day => setState({...state, day})
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const allInterviewers = getInterviewersForDay(state, state.day);
 
   const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -31,11 +32,10 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={allInterviewers}
       />
     );
   });
-
-  const setDay = day => setState({...state, day})
 
   useEffect(() => {
     Promise.all([
