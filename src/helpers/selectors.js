@@ -35,13 +35,13 @@ export function getInterviewersForDay(state, day) {
   if (allDays === [] || allDays[0] === undefined) {
     return [];
   }
-  const apptsForDay = [];
+  const intsForDay = [];
   allDays[0].interviewers.forEach(a => {
     for (let b in state.interviewers) {
-      if (state.appointments[b].id === a) {
-        apptsForDay.push(state.interviewers[b])
+      if (state.interviewers[b].id === a) {
+        intsForDay.push(state.interviewers[b])
       }
     }
   })
-  return apptsForDay;
+  return intsForDay;
 }
