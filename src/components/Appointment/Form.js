@@ -5,7 +5,7 @@ import Button from "../Button"
 
 export default function Form (props) {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
-  const [name, setName] = useState(props.name || null);
+  const [name, setName] = useState(props.name || "");
 
   const save = () => {
     props.onSave(name, interviewer)
