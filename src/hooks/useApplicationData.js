@@ -31,11 +31,21 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    const days = [...state.days];
+    for (let dayId in days) {
+      let day = days[dayId];
+      if (day.appointments.includes(id)) {
+        const addDay = {...day, spots: day.spots + 1};
+        days[dayId] = addDay;
+      }
+    }
+
     return axios.delete(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({
           ...state,
-          appointments
+          appointments,
+          days
         });
       });
   };
@@ -50,11 +60,21 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    const days = [...state.days];
+    for (let dayId in days) {
+      let day = days[dayId];
+      if (day.appointments.includes(id)) {
+        const lessDay = {...day, spots: day.spots - 1};
+        days[dayId] = lessDay;
+      }
+    }
+
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({
         ...state,
         appointments,
+        days
       });
     });
   };
