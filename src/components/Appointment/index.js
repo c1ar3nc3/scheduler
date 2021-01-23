@@ -85,9 +85,7 @@ export default function Appointment (props) {
       {mode === CONFIRM && (
         <Confirm
           onConfirm={deleteInterview}
-          onCancel={() => {
-            back();
-          }}
+          onCancel={() => {back();}}
         />
       )}
       {mode === SAVING && <Status message="Saving" />}
