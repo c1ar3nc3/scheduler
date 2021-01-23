@@ -18,10 +18,9 @@ export default function useVisualMode(initial) {
   const back = function () {
     if (history.length < 2) {
       return;
-    } else {
-      setHistory(history.slice(0, -1));
-      setMode(history[history.length - 2]);
     }
+    setHistory((prev) => prev.slice(0, -1));
+    setMode(history.slice(-2)[0]);
   }
   return {mode, transition, back}
 }
