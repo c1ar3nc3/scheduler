@@ -33,8 +33,6 @@ export default function Appointment (props) {
     };
     transition(SAVING)
 
-    
-
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
     .catch((error) => transition(ERROR_SAVE, true));
@@ -46,18 +44,6 @@ export default function Appointment (props) {
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
     .catch((error) => transition(ERROR_DELETE, true));
-  };
-
-  function onEdit(name, interviewer) {
-    const interview = {
-      student: name,
-      interviewer
-    };
-    transition(SAVING)
-
-    props.editInterview(props.id, interview)
-    .then(() => transition(SHOW))
-    .catch((error) => transition(ERROR_SAVE, true));
   };
 
 
@@ -80,7 +66,7 @@ export default function Appointment (props) {
         name={props.interview.student}
         interviewer={props.interview.interviewer.id}
         interviewers={props.interviewers}
-        onSave={onEdit}
+        onSave={save}
         onCancel={back}
         />
       )}
