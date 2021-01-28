@@ -8,11 +8,11 @@
     for (let b in state.appointments) {
       if (state.appointments[b].id === a) {
         apptsForDay.push(state.appointments[b])
-      }
-    }
-  })
+      };
+    };
+  });
   return apptsForDay;
-}
+};
 
 
 export function getInterview(state, interview) {
@@ -21,9 +21,9 @@ export function getInterview(state, interview) {
       ...interview,
       interviewer: state.interviewers[interview.interviewer],
     };
-  }
+  };
   return null;
-}
+};
 
 
 
@@ -37,8 +37,8 @@ export function getInterviewersForDay(state, day) {
     for (let b in state.interviewers) {
       if (state.interviewers[b].id === a) {
         intsForDay.push(state.interviewers[b])
-      }
-    }
-  })
+      };
+    };
+  });
   return intsForDay;
-}
+};

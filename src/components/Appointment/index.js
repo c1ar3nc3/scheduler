@@ -6,9 +6,9 @@ import Header from "./Header";
 import Empty from "./Empty";
 import Show from "./Show";
 import Form from "./Form";
-import Status from "./Status"
-import Confirm from "./Confirm"
-import Error from "./Error"
+import Status from "./Status";
+import Confirm from "./Confirm";
+import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
 
 const EMPTY = "EMPTY";
@@ -35,8 +35,8 @@ export default function Appointment (props) {
     transition(SAVING)
 
     props.bookInterview(props.id, interview)
-    .then(() => transition(SHOW))
-    .catch((error) => transition(ERROR_SAVE, true));
+         .then(() => transition(SHOW))
+         .catch((error) => transition(ERROR_SAVE, true));
   };
 
 
@@ -44,8 +44,8 @@ export default function Appointment (props) {
     transition(DELETING, true);
 
     props.cancelInterview(props.id)
-    .then(() => transition(EMPTY))
-    .catch((error) => transition(ERROR_DELETE, true));
+         .then(() => transition(EMPTY))
+         .catch((error) => transition(ERROR_DELETE, true));
   };
 
   
@@ -57,8 +57,8 @@ export default function Appointment (props) {
     transition(SAVING)
 
     props.editInterview(props.id, interview)
-    .then(() => transition(SHOW))
-    .catch((error) => transition(ERROR_SAVE, true));
+         .then(() => transition(SHOW))
+         .catch((error) => transition(ERROR_SAVE, true));
   };
 
 

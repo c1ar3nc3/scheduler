@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./InterviewerListItem.scss"
+import "./InterviewerListItem.scss";
 
 let classNames = require('classnames');
 
@@ -9,7 +9,7 @@ export default function InterviewerListItem(props) {
 
   let listClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected
-  })
+  });
 
   return (
     <li className={listClass} onClick={props.setInterviewer} >
@@ -18,7 +18,7 @@ export default function InterviewerListItem(props) {
         src={props.avatar}
         alt={props.name}
       />
-      {props.selected && props.name}
+        {props.selected && props.name}
     </li>
   );
-}
+};

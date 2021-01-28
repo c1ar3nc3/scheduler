@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import InterviewerList from "../InterviewerList"
-import Button from "../Button"
+import InterviewerList from "../InterviewerList";
+import Button from "../Button";
 
 export default function Form (props) {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -15,17 +15,17 @@ export default function Form (props) {
     }
     setError("");
     props.onSave(name, interviewer);
-  }
+  };
 
   const cancel = () => {
     reset();
     props.onCancel();
-  }
+  };
 
   const reset = () => {
-    setName("")
-    setInterviewer(null)
-  }
+    setName("");
+    setInterviewer(null);
+  };
 
 
   return (
@@ -56,5 +56,5 @@ export default function Form (props) {
         </section>
       </section>
     </main>
-  )
+  );
 };
